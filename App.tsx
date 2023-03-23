@@ -1,20 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StytchClient, StytchProvider } from "@stytch/react-native-expo";
+import { StatusBar } from "expo-status-bar";
+import Nav from "./Nav";
+
+const stytch = new StytchClient("YOUR_TOKEN_HERE");
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <StytchProvider stytch={stytch}>
+      <Nav />
       <StatusBar style="auto" />
-    </View>
+    </StytchProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
